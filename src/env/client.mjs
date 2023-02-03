@@ -15,10 +15,7 @@ export const formatErrors = (
     .filter(Boolean);
 
 if (!_clientEnv.success) {
-  console.error(
-    "❌ Invalid environment variables:\n",
-    ...formatErrors(_clientEnv.error.format()),
-  );
+
   throw new Error("Invalid environment variables");
 }
 
