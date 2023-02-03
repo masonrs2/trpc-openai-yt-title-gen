@@ -25,7 +25,7 @@ export const youtubeTitleGenerator = createTRPCRouter({
     const url = `https://www.youtube.com/${"@t3dotgg"}/videos`
     await page.goto(url)
 
-    const videos = await page.evaluate(  (url) => {
+    const videos = await page.evaluate( async (url) => {
       
       const videoObject = Array.from(document.querySelectorAll("div#contents.style-scope.ytd-rich-grid-row"))
       const data = videoObject.map((video: any) => ({
