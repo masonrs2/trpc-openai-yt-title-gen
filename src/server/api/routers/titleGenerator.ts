@@ -36,8 +36,10 @@ export const youtubeTitleGenerator = createTRPCRouter({
       return data.slice(0,10)
     }, url, openai, configuration)
 
-    const prompt = `The following is a list of youtube video titles. After reading the titles, you are given a topic to then write a similar title for. \n\TITLES: $${videos.map((video) => video.title)
+    const prompt = `The following is a list of youtube video titles. After reading the titles, you are given a topic to then write a similar title for. \n\TITLES: $${videos ? videos.map((video) => video.title)
       .join('\n')
+
+    : []
     }
       
     \n\nSIMILAR TITLE FOR TOPIC "${input.topic.toUpperCase()}\n"`
